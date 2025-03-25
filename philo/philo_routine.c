@@ -39,7 +39,7 @@ void	mutex_order(t_philo *philos)
 void	philo_eat(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->shared_data->meal_mutex);
-	philos->last_meal = get_elapsed_time(philos->shared_data->start);
+	philos->last_meal = get_elapsed_time(philos->shared_data->start);//TODO check return value
 	philos->meals_eaten++;
 	pthread_mutex_unlock(&philos->shared_data->meal_mutex);
 	print_status(philos, EAT_NOTIF, YELLOW, should_stop(philos));
@@ -72,11 +72,12 @@ void	*philo_routine(void *args)
 		if (should_stop(philos))
 		{
 			pthread_mutex_unlock(philos->r_fork);
-			pthread_mutex_unlock(philos->l_fork);
+			if (data->philo_num > 1)
+				pthread_mutex_unlock(philos->l_fork);
 			break ;
 		}
-		philo_eat(philos);
-		think_nd_sleep(philos);
+		philo_eat(philos);  
+		think_nd_sleep(philos);   
 	}
 	return (NULL);
 }

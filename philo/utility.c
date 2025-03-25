@@ -43,7 +43,7 @@ void	ft_usleep(long long time_ms, int rip)
 {
 	long long	start;
 
-	start = get_time_ms();
+	start = get_time_ms(); 
 	while (!rip && get_elapsed_time(start) < time_ms)
 		usleep(50);
 }
