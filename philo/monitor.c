@@ -24,7 +24,7 @@ void	check_death(t_philo *philos, t_shared *data)
 	{
 		pthread_mutex_lock(&data->meal_mutex);
 		last_meal = philos[i].last_meal;
-		current = get_elapsed_time(data->start);//TODO: check return value
+		current = get_elapsed_time(data->start);
 		pthread_mutex_unlock(&data->meal_mutex);
 		if (!data->rip && current - last_meal >= data->t_die)
 		{

@@ -39,7 +39,7 @@ void	mutex_order(t_philo *philos)
 void	philo_eat(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->shared_data->meal_mutex);
-	philos->last_meal = get_elapsed_time(philos->shared_data->start);//TODO check return value
+	philos->last_meal = get_elapsed_time(philos->shared_data->start);
 	philos->meals_eaten++;
 	pthread_mutex_unlock(&philos->shared_data->meal_mutex);
 	print_status(philos, EAT_NOTIF, YELLOW, should_stop(philos));

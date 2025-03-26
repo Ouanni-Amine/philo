@@ -16,7 +16,7 @@ long long	get_time_ms(void)
 {
 	struct timeval	current;
 
-	gettimeofday(&current, NULL);//TODO: check return value
+	gettimeofday(&current, NULL);
 	return ((current.tv_sec * 1000) + (current.tv_usec / 1000));
 }
 
@@ -24,7 +24,7 @@ long long	get_elapsed_time(long long start)
 {
 	long long	current;
 
-	current = get_time_ms()//TODO: check return value
+	current = get_time_ms();
 	return (current - start);
 }
 

@@ -40,23 +40,22 @@
 
 typedef struct s_shared
 {
-	sem_t		*forks;
-	sem_t		*print;
-	sem_t		*stop;
-	sem_t		*rip;
 	long		philo_num;
 	long		t_die;
 	long		t_eat;
 	long		t_sleep;
 	long		meals_num;
 	long long	start;
+	sem_t		*forks;
+	sem_t		*print;
+	sem_t		*rip;
 }	t_shared;
 
 typedef struct s_philo
 {
-	t_shared		*shared;
 	pid_t			pid;
-	long			meals_eaten;
 	long			philo_id;
-	long long		last_meal;//todo
+	long			meals_eaten;
+	long long		last_meal;
+	t_shared		*shared;
 }	t_philo;

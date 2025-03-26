@@ -17,7 +17,7 @@ int	thread_create(pthread_t *philo_thread, t_philo *philos)
 	int	i;
 
 	i = 0;
-	philos->shared_data->start = get_time_ms();//TODO: check return value
+	philos->shared_data->start = get_time_ms();
 	while (i < philos->shared_data->philo_num)
 	{
 		philos[i].last_meal = philos->shared_data->start;

@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_bonus.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 17:03:24 by aouanni           #+#    #+#             */
-/*   Updated: 2025/03/22 14:51:10 by aouanni          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "philo_bonus.h"
 
-int	check_args(int c, t_info *data)
+int	check_args(int c, t_shared *data)
 {
 	if (c < 5 || c > 6)
 		return (0);
@@ -37,7 +25,7 @@ int	check_single(char *v)
 	return (1);
 }
 
-int	fill_args_p2(long res, t_info *data, int i)
+int	fill_args_p2(long res, t_shared *data, int i)
 {
 	if (i == 1)
 	{
@@ -62,7 +50,7 @@ int	fill_args_p2(long res, t_info *data, int i)
 	return (1);
 }
 
-int	fill_args(int i, char *v, t_info *data)
+int	fill_args(int i, char *v, t_shared *data)
 {
 	int		j;
 	long	res;
@@ -82,7 +70,7 @@ int	fill_args(int i, char *v, t_info *data)
 	return (1);
 }
 
-int	valid_args(char **v, t_info *data)
+int	valid_args(char **v, t_shared *data)
 {
 	int	i;
 
