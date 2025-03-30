@@ -13,10 +13,11 @@ void	print_status(t_philo *philos, char *message, char *color)
 {
 	long long time;
 
-	sem_wait(philos->shared->print);
 	time = get_elapsed_time(philos->shared->start);
+	sem_wait(philos->shared->print);
 	printf("%s%lld %ld %s%s\n", color, time, philos->philo_id, message, RESET);
-    sem_post(philos->shared->print);
+	if (ft_strcmp(message, "is died"))
+    	sem_post(philos->shared->print);
 }
 
 void	print_error(char *msg)

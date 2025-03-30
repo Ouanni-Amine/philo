@@ -70,6 +70,6 @@ void	cleanup(t_philo *philos, t_shared *data)//NOTE: chck the return value of cl
 	if (data->rip != SEM_FAILED)
 	{
 		sem_close(data->rip);
-		sem_unlink("/seat");
+		sem_unlink("/rip");
 	}
 }

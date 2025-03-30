@@ -20,7 +20,9 @@
 # include <pthread.h>
 # include <semaphore.h>
 # include <signal.h>
-#endif
+# include <fcntl.h>
+#include <stdatomic.h>//for atomic data type
+#include <sys/wait.h>//remove this in mac
 
 # define RED "\033[31m"
 # define GREEN   "\033[32m"
@@ -53,9 +55,30 @@ typedef struct s_shared
 
 typedef struct s_philo
 {
-	pid_t			pid;
-	long			philo_id;
-	long			meals_eaten;
-	long long		last_meal;
-	t_shared		*shared;
+	pid_t					pid;
+	long					philo_id;
+	atomic_long				meals_eaten;
+	atomic_llong			last_meal;
+	atomic_int				stop;
+	pthread_t				thread;
+	t_shared				*shared;
 }	t_philo;
+
+int init(t_shared *data, t_philo **philos);
+long long	get_time_ms(void);
+long long	get_elapsed_time(long long start);
+void	*ft_memset(void *b, int c, size_t len);
+int	ft_isdigit(int c);
+size_t	ft_strlen(const char *s);
+void	ft_putstr_fd(char *s, int fd);
+long	ft_long_atoi(const char *str);
+int	ft_strcmp(char *s1, char *s2);
+void	cleanup(t_philo *philos, t_shared *data);
+void	ft_usleep(long long time_ms);
+void	print_status(t_philo *philos, char *message, char *color);
+void	print_error(char *msg);
+void    philo_routine(t_philo *philos);
+int	check_args(int c, t_shared *data);
+int	valid_args(char **v, t_shared *data);
+void manage_process(t_shared *data, t_philo *philos);
+#endif
