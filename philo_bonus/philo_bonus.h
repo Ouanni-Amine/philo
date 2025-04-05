@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 14:35:51 by aouanni           #+#    #+#             */
-/*   Updated: 2025/03/23 19:48:17 by aouanni          ###   ########.fr       */
+/*   Created: 2025/04/04 20:59:18 by aouanni           #+#    #+#             */
+/*   Updated: 2025/04/05 14:53:40 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 # include <pthread.h>
 # include <semaphore.h>
 # include <signal.h>
-# include <fcntl.h>
-#include <stdatomic.h>//for atomic data type
-#include <sys/wait.h>//remove this in mac
+# include <stdatomic.h>
 
 # define RED "\033[31m"
 # define GREEN   "\033[32m"
@@ -64,21 +62,22 @@ typedef struct s_philo
 	t_shared				*shared;
 }	t_philo;
 
-int init(t_shared *data, t_philo **philos);
+int			init(t_shared *data, t_philo **philos);
 long long	get_time_ms(void);
 long long	get_elapsed_time(long long start);
-void	*ft_memset(void *b, int c, size_t len);
-int	ft_isdigit(int c);
-size_t	ft_strlen(const char *s);
-void	ft_putstr_fd(char *s, int fd);
-long	ft_long_atoi(const char *str);
-int	ft_strcmp(char *s1, char *s2);
-void	cleanup(t_philo *philos, t_shared *data);
-void	ft_usleep(long long time_ms);
-void	print_status(t_philo *philos, char *message, char *color);
-void	print_error(char *msg);
-void    philo_routine(t_philo *philos);
-int	check_args(int c, t_shared *data);
-int	valid_args(char **v, t_shared *data);
-void manage_process(t_shared *data, t_philo *philos);
+void		*ft_memset(void *b, int c, size_t len);
+int			ft_isdigit(int c);
+size_t		ft_strlen(const char *s);
+void		ft_putstr_fd(char *s, int fd);
+long		ft_long_atoi(const char *str);
+int			ft_strcmp(char *s1, char *s2);
+void		cleanup(t_philo *philos, t_shared *data);
+void		ft_usleep(long long time_ms);
+void		print_status(t_philo *philos, char *message, char *color);
+void		print_error(char *msg);
+void		philo_routine(t_philo *philos);
+int			check_args(int c, t_shared *data);
+int			valid_args(char **v, t_shared *data);
+int			manage_process(t_shared *data, t_philo *philos);
+
 #endif

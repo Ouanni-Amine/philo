@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools2_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 20:58:49 by aouanni           #+#    #+#             */
+/*   Updated: 2025/04/05 14:52:16 by aouanni          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_bonus.h"
 
 void	ft_putstr_fd(char *s, int fd)
@@ -34,6 +46,7 @@ long	ft_long_atoi(const char *str)
 	}
 	return (res * sign);
 }
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -53,7 +66,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-void	cleanup(t_philo *philos, t_shared *data)//NOTE: chck the return value of close && unlink
+void	cleanup(t_philo *philos, t_shared *data)
 {
 	if (philos)
 		free(philos);
