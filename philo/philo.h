@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:35:00 by aouanni           #+#    #+#             */
-/*   Updated: 2025/03/22 17:33:44 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/04/05 19:25:53 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int			thread_join(pthread_t *philo_thread, t_philo *philos);
 void		*philo_routine(void *args);
 int			should_stop(t_philo *philos);
 void		print_status(t_philo *philos, char *message, char *color, int rip);
-void		ft_usleep(long long time_ms, int rip);
+void		ft_usleep(long long time_ms, int rip, t_philo *philos);
 void		monitor(t_philo *philos);
 void		cleanup(void);
 int			mutex_manager(pthread_mutex_t *mutex, int flag);

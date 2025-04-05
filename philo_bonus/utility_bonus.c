@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:58:40 by aouanni           #+#    #+#             */
-/*   Updated: 2025/04/05 14:54:32 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/04/05 15:24:51 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_usleep(long long time_ms)
 	while (get_elapsed_time(start) < time_ms)
 		usleep(50);
 }
+
 void	print_status(t_philo *philos, char *message, char *color)
 {
 	long long	time;

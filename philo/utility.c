@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:06:29 by aouanni           #+#    #+#             */
-/*   Updated: 2025/03/17 21:19:20 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/04/05 19:25:36 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,17 @@ void	print_status(t_philo *philos, char *message, char *color, int rip)
 	pthread_mutex_unlock(&philos->shared_data->print_mutex);
 }
 
-void	ft_usleep(long long time_ms, int rip)
+void	ft_usleep(long long time_ms, int rip, t_philo *philos)
 {
 	long long	start;
 
-	start = get_time_ms(); 
+	start = get_time_ms();
 	while (!rip && get_elapsed_time(start) < time_ms)
+	{
+		if (should_stop(philos))
+			break ;
 		usleep(50);
+	}
 }
 
 int	mutex_manager(pthread_mutex_t *mutex, int flag)
