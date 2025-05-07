@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:50:46 by aouanni           #+#    #+#             */
-/*   Updated: 2025/04/05 14:54:09 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/07 13:21:25 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,12 @@ void	rip_process(t_shared *data, t_philo *philos)
 	int	i;
 
 	i = 0;
-	if (data->meals_num == -1)
-		sem_wait(data->rip);
-	else
+	while (i < data->philo_num)
 	{
-		while (i < data->philo_num)
-		{
-			sem_wait(data->rip);
-			i++;
-		}
+		sem_wait(data->rip);
+		i++;
 	}
+	i = 0;
 	while (i < data->philo_num)
 	{
 		kill(philos[i].pid, SIGKILL);
