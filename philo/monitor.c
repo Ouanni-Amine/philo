@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:54:06 by aouanni           #+#    #+#             */
-/*   Updated: 2025/03/17 20:40:54 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/12 17:09:05 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	check_death(t_philo *philos, t_shared *data)
 	{
 		pthread_mutex_lock(&data->meal_mutex);
 		last_meal = philos[i].last_meal;
-		current = get_elapsed_time(data->start);
+		current = get_time_ms();
 		pthread_mutex_unlock(&data->meal_mutex);
-		if (!data->rip && current - last_meal >= data->t_die)
+		if (!data->rip && current - last_meal >= data->t_die && !philos[i].is_eating)
 		{
 			print_status(&philos[i], DEAD_NOTIF, RED, data->rip);
 			data->rip = 1;

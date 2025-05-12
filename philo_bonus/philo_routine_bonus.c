@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:59:07 by aouanni           #+#    #+#             */
-/*   Updated: 2025/04/05 14:52:28 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/12 16:43:38 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ int	check_one(t_shared *data, t_philo *philos)
 
 void	eat_habit(t_shared *data, t_philo *philos)
 {
-	philos->last_meal = get_elapsed_time(data->start);
+	philos->last_meal = get_time_ms();
 	print_status(philos, EAT_NOTIF, YELLOW);
 	philos->meals_eaten++;
+	philos->is_eating = 1;
 	ft_usleep(data->t_eat);
+	philos->is_eating = 0;
 	sem_post(data->forks);
 	sem_post(data->forks);
 }

@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:33:05 by aouanni           #+#    #+#             */
-/*   Updated: 2025/03/17 21:15:39 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/12 16:48:31 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	philos_init(pthread_mutex_t *forks, t_philo *philos, t_shared *data)
 		philos[i].l_fork = &forks[i];
 		philos[i].r_fork = &forks[(i + 1) % data->philo_num];
 		philos[i].shared_data = data;
+		philos[i].is_eating = 0;
 		i++;
 	}
 }

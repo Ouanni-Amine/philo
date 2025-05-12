@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:59:18 by aouanni           #+#    #+#             */
-/*   Updated: 2025/04/05 14:53:40 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/12 15:50:44 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_shared
 
 typedef struct s_philo
 {
+	atomic_int				is_eating;
 	pid_t					pid;
 	long					philo_id;
 	atomic_long				meals_eaten;

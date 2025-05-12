@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:52:18 by aouanni           #+#    #+#             */
-/*   Updated: 2025/05/07 13:37:48 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/12 17:09:15 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	*monitoring(void *args)
 	data = philos->shared;
 	while (!philos->stop)
 	{
-		current = get_elapsed_time(data->start);
-		if (current - philos->last_meal >= data->t_die)
+		current = get_time_ms();
+		if (current - philos->last_meal >= data->t_die && !philos->is_eating)
 		{
 			philos->stop = 1;
 			print_status(philos, DEAD_NOTIF, RED);

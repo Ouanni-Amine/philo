@@ -6,7 +6,7 @@
 /*   By: aouanni <aouanni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:49:37 by aouanni           #+#    #+#             */
-/*   Updated: 2025/04/05 14:52:34 by aouanni          ###   ########.fr       */
+/*   Updated: 2025/05/12 15:49:47 by aouanni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	init(t_shared *data, t_philo **philos)
 		(*philos)[i].philo_id = i + 1;
 		(*philos)[i].meals_eaten = 0;
 		(*philos)[i].shared = data;
+		(*philos)[i].is_eating = 0;
 		i++;
 	}
 	if (!init_sems(data))
